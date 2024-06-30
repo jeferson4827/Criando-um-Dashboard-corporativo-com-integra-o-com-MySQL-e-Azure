@@ -1,2 +1,11 @@
 # Criando-um-Dashboard-corporativo-com-integra-o-com-MySQL-e-Azure
 Criando um Dashboard corporativo com integração com MySQL e Azure
+Importei dados do MySQL na Azure para o Power BI. A transformação dos dados resultou em um conjunto pronto para análise. Foi estabelecida a conexão entre o MySQL e o Power BI, e realizada a limpeza e aplicação de filtros.
+Configurando o Azure - Criei uma instância MySQL na Azure
+Usando o arquivo “script_bd_company.sql” estruturei o banco com tabelas e preenchi com dados iniciais “insercao_de_dados_e_queries_sql”.
+Foi estabelecida uma conexão direta entre o Power BI Desktop e o MySQL na Azure.
+Após importado foram feitas as correções na base com ajuste de erros no cabeçalho, tratamento de nulos que foram mantidos, adição da coluna “Funcionariosemgerente” identificado através da função  "if" se o "Super_ssn" era nulo, classificando como "Sim" ou "Não”, conversão dos valores monetários para decimal fixo.
+Eliminei colunas que não ajudavam na analise, visando a melhoria de desempenho no relatório e analises mais limpas.
+Foi mesclado as colunas “employee” e “departament” via Power query, resultando na tabela “Departamento_Empregado”, usando como base “Ssn” de “employee” e “Mgr_ssn” de “departament” para assim conseguir indicar o departamento do empregado.
+Para realizar a associação entre colaboradores e grenetes comecei a tarefa empregando uma consulta SQL na Azure que ligava cada funcionário ao seu supervisor. A consulta gerou uma tabela com as colunas "EmployeeName" e "ManagerName". Com essa tabela disponível, no PowerQuery, adicionei uma nova coluna. Logo se nome do funcionário fosse "John B Smith", "Franklin T Wong" ou "Ahmad V Jabbar", ele seria classificado como "Gerente". Caso contrário, seria classificado como "Colaborador", além disso foi mesclado as tabelas "company departament" e "company dept_locations" em uma única tabela "Department By Local" a fusão foi feita utilizando uma ferramenta específica o objetivo e benefícios são com "Department By Local", agora possuo combinações distintas de departamentos e seus respectivos locais. Isso servirá como base para o desenvolvimento de um modelo estrela no futuro, onde essa tabela central será essencial para conectar outras tabelas e proporcionar análises mais detalhadas.
+
